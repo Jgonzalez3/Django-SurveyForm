@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Survey Results</title>
+</head>
+<body>
+    <div class="container">
+        <p class="counterbox">Thanks for submitting this form! You have submitted this form {{request.session.counter}} times now.</p>
+        <div class="surveyinfo">
+            <h3>Submitted Information</h3>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Name:</td>
+                        <td>{{request.session.name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Dojo Location:</td>
+                        <td>{{request.session.dojolocation}}</td>
+                    </tr>
+                    <tr>
+                        <td>Favorite Location:</td>
+                        <td>{{request.session.favoritelanguage}}</td>
+                    </tr>
+                    <tr>
+                        <td>Comment:</td>
+                        <td>{{request.session.comment}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <form action="/survey_app/gohome" action="post">
+                {% csrf_token %}
+                <input type="submit" value="Go Back">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
