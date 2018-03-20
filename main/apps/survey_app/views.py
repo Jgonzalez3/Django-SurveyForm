@@ -10,7 +10,7 @@ def index(request):
     return render(request, 'survey_app/index.html')
 
 def create(request):
-    if request.session['counter'] < 1:
+    if "counter" not in request.session:
         request.session['counter'] = 0
     if request.method == 'POST':
         request.session['counter'] += 1
